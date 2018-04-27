@@ -1,0 +1,233 @@
+$color:$ccmain;
+
+// markup style
+.markup {
+	margin-bottom: 70px;
+
+	@include responsive(tablette) {
+		@include fs(16);
+	}
+	@include responsive(smartphone) {
+		@include fs(14);
+		margin-bottom: 20px;
+	}
+
+	> * {
+		margin-bottom:30px;
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+	p {
+		&:first-child {
+			margin-top: 80px;
+			@include responsive(smartphone) {
+				margin-top: 40px;
+			}
+		}
+	}
+	a:not(.btn) {
+		color: $color;
+		font-weight: 400;
+		text-decoration: none;
+		&:after {
+				bottom:-5px;
+				height: 2px;
+		}
+	}
+	.btn {
+		margin-bottom: 20px;
+	}
+	b, strong {
+		font-weight: $bold;
+	}
+	em {
+		font-weight: $medium;
+	}
+	ul {
+    	padding-left:30px;
+    	@include responsive(tablette) {
+    		padding-left:40px;
+    	}
+    	@include responsive(smartphone) {
+    		padding-left:20px;
+    	}
+    	> li {
+    		@extend .icon-font;
+    		@extend .icon-star;
+    		position:relative;
+    		margin-bottom: 30px;
+    		&:before {
+    			color: $color;
+    			display: block;
+    			position:absolute;
+    			top:9px;
+    			left:-22px;
+    			font-size: 11px;
+
+    			@include responsive(smartphone) {
+    				top:8px;
+    				left:-14px;
+    			}
+    		}
+    		> ul {
+    			margin-top: 5px;
+    			padding-left: 35px;
+    			li {
+    				position:relative;
+    				margin-bottom: 5px;
+    				&:before {
+    					content:"";
+    					width:5px;
+    					height:5px;
+    					border-radius: 100%;
+    					background:#888888;
+    					display: block;
+    					position:absolute;
+    					top:12px;
+    					left:-20px;
+
+    					@include responsive(tablette) {
+    						top:10px;
+    						left:-18px;
+    					}
+    					@include responsive(smartphone) {
+    						top:8px;
+    						left:-14px;
+    					}
+    				}
+    			}
+    		}
+    		> ol {
+    			padding-left:20px;
+    			counter-reset: list-ol;
+    			li {
+    				&:before {
+    					counter-increment: list-ol;
+    					content: counters(list-ol, '.') ".";
+    					margin-right:5px;
+    					font-weight: $bold;
+    					text-align:right;
+    					color:$color;
+    				}
+    			}
+    		}
+    	}
+  }
+  > ol {
+    	padding-left:40px;
+    	counter-reset: list-ol;
+    	> li {
+    		position:relative;
+    		> ol {
+    			padding-left:30px;
+    			counter-reset: list-ol;
+    			li {
+    				&:before {
+    					counter-increment: list-ol;
+    					content: counters(list-ol, '.') ".";
+    					margin-right:5px;
+    					font-weight: $bold;
+    					text-align:right;
+    					color:$color;
+    				}
+    			}
+    		}
+    		&:before {
+    			counter-increment: list-ol;
+    			content: counters(list-ol, '.') ".";
+    			margin-right:5px;
+    			font-weight: $bold;
+    			text-align:right;
+    			color:$color;
+    		}
+    	}
+  }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+    	margin-top: 20px;
+    	font-weight: $bold;
+    }
+
+    h1 {
+    	@include fs(42);
+    	@include responsive(smartphone) {
+    		@include fs(24);
+    	}
+    }
+    h2 {
+    	@extend .title-section;
+    }
+    h3 {
+    	@extend .title-paragraph;
+    }
+    h4 {
+    	@include fs(16);
+    	@include responsive(smartphone) {
+    		@include fs(14);
+    	}
+    }
+    h5 {
+    	@include fs(14);
+    	@include responsive(smartphone) {
+    		@include fs(12);
+    	}
+    }
+    h6 {
+    	@include fs(12);
+    }
+
+    h1,
+    h2,
+    h3 {
+    	margin-top: 60px;
+    }
+
+    h2 + h3 {
+    	margin-top: 0;
+    }
+
+    img {
+    	display: block;
+    	margin: 30px auto;
+    	border-radius: 2px;
+    }
+
+    small {
+    	@include fs(12)
+    }
+
+    blockquote {
+    	position: relative;
+    	font-family: $typoSecondary;
+    	@include fs(42);
+    	font-style: italic;
+    	line-height: 1.4;
+    	margin: 70px 0;
+    	&:first-child {
+    		margin-top: 0;
+    	}
+    	&:before {
+    		content:"";
+    		position: absolute;
+    		top:-30px;
+    		left:-60px;
+    		z-index: -1;
+    		background: url('../img/quotes.svg') no-repeat;
+    		width: 117px;
+    		height: 90px;
+    	}
+    	@include responsive(smartphone) {
+    		@include fs(32);
+    	}
+    	@media screen and (min-width: 1160px) {
+    		margin-left: -140px;
+    		margin-right: -140px;
+    	}
+    }
+  }

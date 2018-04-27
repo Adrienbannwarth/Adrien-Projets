@@ -1,0 +1,216 @@
+/*
+  RESPONSIVE
+  @include responsive(smartphone) { width:100px }
+  @include responsive(tablette) { width:200px }
+  @include responsive(desktop) { width:300px }
+*/
+
+$break-tiny: 768px;
+$break-small: 990px;
+$break-medium: 1200px;
+$break-large: 1440px;
+$small-height: 410px;
+$super-large: 1700px;
+
+@mixin responsive($media) {
+  @if $media == smartphone {
+      @media only screen and (max-width: $break-tiny) { @content; }
+  } @else if $media == minsmartphone {
+      @media only screen and (min-width: $break-tiny) { @content; }
+  } @else if $media == tablette {
+      @media only screen and (min-width: $break-tiny + 1) and (max-width: $break-small - 1) { @content; }
+  } @else if $media == smdevice {
+      @media only screen and (max-width: $break-small) { @content; }
+  } @else if $media == desktop {
+      @media only screen and (min-width: $break-small) { @content; }
+  } @else if $media == mdesktop {
+      @media only screen and (min-width: $break-medium) { @content; }
+  } @else if $media == mdesktopdown {
+      @media only screen and (max-width: $break-medium) { @content; }
+  } @else if $media == sdesktop {
+      @media only screen and (min-width: $break-small) and (max-width: $break-medium - 1) { @content; }
+  } @else if $media == large {
+      @media only screen and (min-width: $break-large) { @content; }
+  } @else if $media == big {
+      @media only screen and (min-width: $super-large) { @content; }
+  } @else if $media == retina {
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { @content; }
+  } @else if $media == smallheight {
+      @media only screen and (max-height: $small-height) { @content; }
+
+  } @else if $media == not-smartphone {
+      @media only screen and (min-width: $break-tiny + 1) { @content; }
+  }
+}
+
+// Syntax mixin
+// @include function(param);
+
+/*
+    FONTSIZE
+    p {
+        @include fs(16);
+    }
+ */
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 16) + rem;
+}
+@mixin fs($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 16) + rem;
+}
+
+/*
+  POSITION CENTER
+  div {
+      @include centerer('vertical');
+  }
+*/
+@mixin centerer($position: '') {
+  position: absolute;
+  top: 50%;
+  @if $position=='vertical' {
+    transform: translate3D(0, -50%, 0);
+  } @elseif $position=='horizontal' {
+    top: inherit;
+    left: 50%;
+    transform: translate3D(-50%, 0, 0);
+  } @else {
+    left: 50%;
+    transform: translate3D(-50%, -50%, 0);
+  }
+}
+
+/*
+  POSITION CENTER
+  div {
+    @include gradientDarken('position', 'opacity', 'height');
+  }
+*/
+@mixin gradientDarken($position: 'top', $opacity: 0.5, $height: 35%) {
+  @if $position=='top' {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: 100%;
+      height: $height;
+      pointer-events: none;
+      background: linear-gradient(to bottom, rgba(0,0,0,$opacity) 0%,rgba(0,0,0,0) 90%);
+    }
+  } @elseif $position=='bottom' {
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: 100%;
+      height: $height;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(#000,$opacity) 0%, rgba(#000,0) 90%);
+    }
+  }
+}
+
+@mixin gradientLighten($position: 'top', $opacity: 0.5, $height: 35%) {
+  @if $position=='top' {
+    @include gradientDarken($position);
+    &:before {
+      height: $height;
+      background: linear-gradient(to bottom, rgba(#FFF,$opacity) 0%,rgba(#FFF,0) 90%);
+    }
+  } @elseif $position=='bottom' {
+    @include gradientDarken($position);
+    &:after {
+      height: $height;
+      background: linear-gradient(to bottom, rgba(#FFF,$opacity) 0%,rgba(#FFF,0) 90%)
+    }
+  }
+}
+
+
+/*
+  Responsive image
+  Keep images from scaling beyond the width of their parents.
+*/
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  cover image
+  the aspect ratio of the images is preserved.
+*/
+@mixin img-cover {
+  object-fit: cover;
+  // polyfill with ofi.js for older browsers
+  font-family: 'object-fit: cover;';
+}
+
+/*
+  wrapper with set ratio + image cover
+  the aspect ratio of the images is preserved.
+  # apply it to the direct parent of image
+*/
+@mixin img-cover-ct {
+  position: relative;
+  height: 0;
+  padding-bottom: 50%;
+  > img {
+    @include img-cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+// Triangle generator
+/*
+  div {
+    @include triangle(size, color, 'direction');
+  }
+*/
+@mixin triangle($size, $color, $direction) {
+  height: 0;
+  width: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: $size / 2;
+
+  @if $direction == up {
+    border-bottom-color: $color;
+  } @else if $direction == right {
+    border-left-color:   $color;
+
+  } @else if $direction == down {
+    border-top-color:    $color;
+
+  } @else if $direction == left {
+    border-right-color:  $color;
+  }
+}
+
+// Input placeholder style
+/*
+  @include placeholder {
+		color: transparent;
+	}
+*/
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+

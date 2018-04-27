@@ -1,0 +1,383 @@
+/*
+Theme Name: hej
+Author: Creano
+Author URI:
+Description:
+Version: 1.0
+*/
+
+// TODO: separate this file in multiple files
+
+/* Fonts */
+@import "fonts/font";
+/* Dependencies */
+@import "dependancies/mixin";
+@import "dependancies/ceaser";
+@import "dependancies/reset";
+@import "dependancies/anim";
+
+// VARS
+$light : 300;
+$normal : 400;
+$medium : 500;
+$semibold : 600;
+$bold : 700;
+$extrabold: 800;
+$black : 900;
+// font
+.light {
+	font-weight: $light;
+}
+.normal {
+	font-weight: $normal;
+}
+.medium {
+	font-weight: $medium;
+}
+.semibold {
+	font-weight: $semibold;
+}
+.bold {
+	font-weight: $bold;
+}
+.extrabold {
+	font-weight: $extrabold;
+}
+.black {
+	font-weight: $black;
+}
+// colors
+$ccmain: #373333;
+$green: #50E3C2;
+$blanc: #ffffff;
+$yellow: #b2a579;
+$scrollbar:$ccmain;
+
+// typo
+$typoMain:'din', Helvetica, Arial, sans-serif;
+$typoSecondary: 'Playfair Display', serif;
+
+// TAILLE
+$h1: 3rem;
+$h2: 2rem;
+
+
+/* ==== SUMMARY ==== *\
+
+// ======= \\
+    MIXIN
+\\ ======= //
+
+@include responsive(smartphone || tablette || desktop || sdesktop (bigger than desktop) || retina) {};
+@include keyframe(animationName) {};
+@include prefix(property, value);
+@include fs(20);
+
+// ======== \\
+    CEASER
+\\ ======== //
+
+In           || Out           || InOut
+================================================
+$easeInExpo  || $easeOutExpo  || $easeInOutExpo
+$easeInQuint || $easeOutQuint || $easeInOutQuint
+$easeInQuart || $easeOutQuart || $easeInOutQuart
+$easeInCubic || $easeOutCubic || $easeInOutCubic
+$easeInQuad  || $easeOutQuad  || $easeInOutQuad
+$easeInSine  || $easeOutSine  || $easeInOutSine
+
+$easeInCirc  || $easeOutCirc  || $easeInOutCirc
+$easeInBack  || $easeOutBack  || $easeInOutBack
+$bounce
+
+animation
+=========
+fromy-80
+fromy80
+fromx-80
+fromx80
+fromy-160
+fromy160
+fromx-160
+fromx160
+
+\* ==== END - SUMMARY ==== */
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #efefef; //box-shadow: 0 0 8px rgba(0,0,0,.25) inset;
+}
+::-webkit-scrollbar-thumb {
+	background: $scrollbar; //background: linear-gradient(to bottom,  #999 0%, #666 100%);
+	//box-shadow: 0 0 3px rgba(0,0,0,.25) inset;
+}
+// text selection
+// ::selection      {background: $ccmain;color:#fff;}
+// ::-moz-selection {background: $ccmain;color:#fff;}
+// html
+html, body {
+	width: 100%;
+	position: relative;
+	font-family: 'Passion One', cursive;
+}
+body {
+	overflow-x: hidden;
+	opacity:0;
+	animation: fadein 0.3s ease-in forwards;
+	background: #fff;
+	margin: 0;
+	background-color: #1B1919;
+
+
+
+	.contourhaut{
+		border-top: solid 15px $blanc;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		z-index: 100;
+	}
+
+	.contourdroit{
+		border-right: solid 15px $blanc;
+		height: 100%;
+		right: 0;
+		position: fixed;
+		z-index: 100;
+
+	}
+
+	.contourbas{
+		border-bottom: solid 15px $blanc;
+		width: 100%;
+		bottom: 0;
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		z-index: 100;
+	}
+
+	.contourgauche{
+
+		border-left: solid 15px $blanc;
+		height: 100%;
+		left: 0;
+		position: fixed;
+		z-index: 100;
+	}
+	/*HEADER. HEADER. HEADER. HEADER. HEADER. HEADER. HEADER. HEADER. HEADER. HEADER. HEADER*/
+	header{
+		/* MENU  MENU  MENU  MENU  MENU  MENU  MENU  MENU  MENU  MENU  MENU  MENU */
+
+		padding-top: 50px;
+		width: 100%;
+		z-index: 10;
+		position: relative;
+
+		.col {
+			display: block;
+			float: left;
+			margin: 1% 0 1% 1.6%;
+		}
+
+		.col:first-of-type {
+			margin-left: 0;
+		}
+
+		.container {
+			margin: 0 auto;
+			text-align: center;
+			position: fixed;
+			margin-left: 80%;
+			padding-top: 10px;
+
+
+		}
+
+		.hamburger .line {
+			width: 40px;
+			height: 3px;
+			background-color: white;
+			display: block;
+			margin: 8px auto;
+			-webkit-transition: all 0.3s ease-in-out;
+			-o-transition: all 0.3s ease-in-out;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.hamburger .line:hover {
+			background-color: white;
+			-webkit-transition: all 0s ease-in-out;
+			-o-transition: all 0s ease-in-out;
+		}
+
+		.hamburger:hover {
+			cursor: pointer;
+		}
+
+		#hamburger-7.is-active .line:nth-child(1) {
+			width: 30px;
+			background-color: $blanc;
+		}
+
+		#hamburger-7.is-active .line:nth-child(2) {
+			width: 40px;
+			background-color: $blanc;
+		}
+
+		#hamburger-7.is-active .line {
+			-webkit-transform: rotate(30deg);
+			-ms-transform: rotate(30deg);
+			-o-transform: rotate(30deg);
+			transform: rotate(30deg);
+			background-color: $blanc;
+		}
+
+		.navigation {
+			position: fixed;
+			right: 50px;
+			transition: transform .3s ease-in-out;
+			-webkit-transition: transform .3s ease-in-out;
+			transform: translateX(130%);
+			-webkit-transform: translateX(130%);
+		}
+
+
+		.navigation.isOpen {
+			transform: translateX(-80%);
+			-webkit-transform: translateX(-80%);
+		}
+
+		.navigation ul li {
+			display: inline-block;
+
+			a {
+				text-decoration: none;
+				color: $blanc;
+				@include fs(20);
+				letter-spacing: 1px;
+				margin-left: 30px;
+
+				&:hover{
+					color: $yellow;
+				}
+			}
+		}
+
+
+
+		/* FIN MENU  FIN MENU  FIN MENU  FIN MENU  FIN MENU  FIN MENU  FIN MENU  FIN MENU  FIN MENU*/
+
+		.dridri{
+			position: fixed;
+			left: 50px;
+			margin: 0;
+			color: $yellow;
+			@include fs(40);
+			text-decoration: none;
+		}
+
+	}
+
+	/*FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER. FOOTER*/
+
+	footer{
+
+		margin-bottom: 40px;
+
+		.cv{
+			position: fixed;
+			color: $blanc;
+			top: 90%;
+			right: 100px;
+			border: none;
+			text-decoration: none;
+
+			&:hover{
+				color: $yellow;
+			}
+		}
+
+	}
+
+	.nav-projet{
+
+		color: $blanc;
+		position: relative;
+		z-index: 20;
+		text-align: center;
+		margin-top: 200px;
+
+		li{
+			display: inline-block;
+		}
+
+		a{
+			text-decoration: none;
+			margin: 40px;
+
+			&:hover{
+				color: $yellow;
+			}
+		}
+
+	}
+
+
+
+	@include fs(18);
+	font-weight: 300;
+	line-height: 1.5;
+	letter-spacing: 0.02em;
+	text-align: left;
+	color: $ccmain;
+
+	@include responsive(smartphone) {
+		@include fs(14);
+	}
+
+}
+
+
+/* ============== *\
+    STRUCTURE
+    \* ============== */
+
+    .main {
+    	width: 100%;
+    	max-width: 1200px;
+    	padding: 0 15px;
+    	margin: 0 auto;
+    	position: relative;
+    	z-index: 0;
+    }
+
+    .full--img {
+    	@include img-cover-ct;
+    	padding-bottom: 60%;
+    	position: fixed;
+    	top: 0;
+    	right: 0;
+    	bottom: 0;
+    	left: 0;
+    	z-index: -1;
+    	@include responsive(smartphone) {
+    		padding-bottom: 100%;
+    	}
+    }
+
+    // PAGE CONTENT
+    .page-content {
+    	position: relative;
+    }
+
+    @import "dependancies/helpers"; // Use global vars
+    @import "part/menu";
+    @import "part/apropos";
+    @import "part/projet";
+

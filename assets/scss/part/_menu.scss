@@ -1,0 +1,38 @@
+
+/* Projets  Projets  Projets  Projets  Projets  Projets  Projets*/
+.navnav{
+	margin-top: 18%;
+
+	.ndp{
+		@include fs(16);
+	}
+
+	.ulul{
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		font-size: 7rem;
+
+
+		.lili{
+			display: inline-block;
+
+
+
+			.aa{
+				text-decoration: none;
+				color: $blanc;
+				padding: 10px 50px; /* 50 correspond à l'espace entre chaque onglet */
+				display: block;
+
+
+				&:hover{
+					color: $yellow;
+				}
+
+			}
+
+		}
+	}
+
+}

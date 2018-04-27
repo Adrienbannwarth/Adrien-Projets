@@ -1,0 +1,92 @@
+section{
+
+	.apropos{
+		position: relative;
+
+		.moi{
+
+			margin-top:150px;
+			margin-bottom: 200px;
+			max-width: 100%;
+			width: 500px;
+			padding: 0 30px;
+			display: inline-block;
+
+			.moiretouche{
+				width: 600px;
+				opacity: .30;
+				transition-duration: 1s;
+
+				&:hover{
+					opacity: 1;
+					transition-duration: 1s;
+				}
+
+			}
+
+			.prenom{
+
+				color: $blanc;
+				@include fs (30);
+				margin-bottom: 20px;
+			}
+
+			.Phraseaccroche{
+				@include fs (100);
+				color: $blanc;
+				line-height:1;
+				margin-bottom: 30px;
+				min-width: 500px;
+				@include responsive(smartphone) {
+					@include fs (50);
+					padding-right: 30px;
+				}
+
+			}
+
+			.mail{
+				text-decoration: none;
+				color: $blanc;
+				font-family: 'din';
+				font-weight: bold;
+			}
+
+
+		}
+
+		.titredeux{
+			@include fs (30);
+			color: $yellow;
+			position: float-left;
+			padding: 0 30px;
+		}
+
+		.groupe{
+
+			margin-top: 50px;
+			margin-bottom: 200px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			width: 1000px;
+			max-width: 100%;
+
+
+			.description{
+
+
+				margin-bottom: 3rem;
+				color: $blanc;
+				font-family: 'din';
+				@include fs (16);
+				padding: 0 30px;
+
+				.st{
+					font-weight: $bold;
+				}
+
+			}
+
+		}
+	}
+}

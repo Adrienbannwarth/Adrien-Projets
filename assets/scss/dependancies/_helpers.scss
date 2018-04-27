@@ -1,0 +1,337 @@
+/* $HELPERS
+   ==========================================================================
+*/
+
+/* ---------------------------------- */
+/* ==visual helpers                   */
+/* .. use them with parcimony !       */
+/* ---------------------------------- */
+
+// TODO: make a loop of it
+
+$tiny-value             : 30px; // tiny value for margins / paddings
+$small-value            : 60px; // small value for margins / paddings
+$medium-value           : 80px; // medium value for margins / paddings
+$large-value            : 130px; // large value for margins / paddings
+
+/* spacing helpers
+p,m = padding,margin
+a,t,r,b,l = all,top,right,bottom,left
+s,m,l,n = small, medium, large, none
+*/
+.man,
+.ma0 {
+	margin: 0;
+}
+
+.pan,
+.pa0 {
+	padding: 0;
+}
+
+.mauto {
+	margin: 0 auto;
+}
+
+.mat {
+	margin: $tiny-value;
+}
+
+.mas {
+	margin: $small-value;
+}
+
+.mam {
+	margin: $medium-value;
+}
+
+.mal {
+	margin: $large-value;
+}
+
+.pat {
+	padding: $tiny-value;
+}
+
+.pas {
+	padding: $small-value;
+}
+
+.pam {
+	padding: $medium-value;
+}
+
+.pal {
+	padding: $large-value;
+}
+
+.mtn,
+.mt0 {
+	margin-top: 0;
+}
+
+.mtt {
+	margin-top: $tiny-value;
+}
+
+.mts {
+	margin-top: $small-value;
+}
+
+.mtm {
+	margin-top: $medium-value;
+}
+
+.mtl {
+	margin-top: $large-value;
+}
+
+.mrn,
+.mr0 {
+	margin-right: 0;
+}
+
+.mrt {
+	margin-right: $tiny-value;
+}
+
+.mrs {
+	margin-right: $small-value;
+}
+
+.mrm {
+	margin-right: $medium-value;
+}
+
+.mrl {
+	margin-right: $large-value;
+}
+
+.mbn,
+.mb0 {
+	margin-bottom: 0;
+}
+
+.mbt {
+	margin-bottom: $tiny-value;
+}
+
+.mbs {
+	margin-bottom: $small-value;
+}
+
+.mbm {
+	margin-bottom: $medium-value;
+}
+
+.mbl {
+	margin-bottom: $large-value;
+}
+
+.mln,
+.ml0 {
+	margin-left: 0;
+}
+
+.mlt {
+	margin-left: $tiny-value;
+}
+
+.mls {
+	margin-left: $small-value;
+}
+
+.mlm {
+	margin-left: $medium-value;
+}
+
+.mll {
+	margin-left: $large-value;
+}
+
+.ptn,
+.pt0 {
+	padding-top: 0;
+}
+
+.ptt {
+	padding-top: $tiny-value;
+}
+.pts {
+	padding-top: $small-value;
+}
+
+.ptm {
+	padding-top: $medium-value;
+}
+
+.ptl {
+	padding-top: $large-value;
+}
+
+.prn,
+.pr0 {
+	padding-right: 0;
+}
+
+.prt {
+	padding-right: $tiny-value;
+}
+
+.prs {
+	padding-right: $small-value;
+}
+
+.prm {
+	padding-right: $medium-value;
+}
+
+.prl {
+	padding-right: $large-value;
+}
+
+.pbn,
+.pb0 {
+	padding-bottom: 0;
+}
+.pbt {
+	padding-bottom: $tiny-value;
+}
+.pbs {
+	padding-bottom: $small-value;
+}
+
+.pbm {
+	padding-bottom: $medium-value;
+}
+
+.pbl {
+	padding-bottom: $large-value;
+}
+
+.pln,
+.pl0 {
+	padding-left: 0;
+}
+
+.plt {
+	padding-left: $tiny-value;
+}
+.pls {
+	padding-left: $small-value;
+}
+
+.plm {
+	padding-left: $medium-value;
+}
+
+.pll {
+	padding-left: $large-value;
+}
+
+.bg-ccmain {
+	background-color:  $ccmain
+}
+
+/* display
+   ========================================================================== */
+
+.db {
+	display: block;
+}
+
+/* text
+   ========================================================================== */
+
+   .txt-center {
+   	text-align: center;
+   }
+
+   .txt-right {
+   	text-align: right;
+   }
+
+
+   .txt-left {
+   	text-align: left;
+   }
+
+/* img
+   ========================================================================== */
+// @extend .class;
+
+// Responsive images (ensure images don't scale beyond their parents)
+.img-fluid {
+	@include img-fluid;
+}
+
+.img-cover {
+	@include img-cover;
+}
+
+.img-cover-ct {
+	position: relative;
+	height: 0;
+	padding-bottom: 50%;
+	> img {
+		@include img-cover;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+	}
+}
+
+/* flex grid
+   ========================================================================== */
+
+   .flex-align-center {
+   	align-items: center;
+   }
+
+/* others
+   ========================================================================== */
+
+   .absolute-fit {
+   	position: absolute;
+   	width: 100%;
+   	height: 100%;
+   	bottom: 0;
+   	left: 0;
+   	right: 0;
+   	top: 0;
+   }
+
+   .absolute-center {
+   	position: absolute;
+   	left: 50%;
+   	top: 50%;
+   	transform: translate(-50%,-50%);
+   }
+
+   .visually-hidden {
+   	position: absolute !important;
+   	border: 0 !important;
+   	height: 1px !important;
+   	width: 1px !important;
+   	padding: 0 !important;
+   	overflow: hidden !important;
+   	clip: rect(1px, 1px, 1px, 1px) !important;
+   }
+
+   .overlay-dark {
+   	@extend .absolute-fit;
+   	z-index: 1;
+   	background-color: rgba(#000, .06);
+   }
+
+   .bloc-dark-bg, .bloc-bg-colored, .white-content {
+   	&, a, span, i, p, li,	*:after, *:before, h1, h2, h3, h4, h5, h6 {
+   		color: #FFF;
+   	}
+   	a:hover {
+   		color: #FFF;
+   	}
+   }
