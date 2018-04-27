@@ -18,7 +18,7 @@
 	<div class="contourbas"></div>
 	<div class="contourgauche"></div>
 
-	<section class="main">
+	<section class="main">Coucou
 
 	</div>
 	<header>
