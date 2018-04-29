@@ -23,7 +23,7 @@ include('header.php');
 
 	<img  class="ordi"  src="assets/img/MAC-clara.png">
 
-	<img class="capture" src="assets/img/lapetitephotoc01.businesscatalyst.com_portraits.html.png">
+	<img class="capture" src="assets/img/lapetitephotoc01.businesscatalyst.com_portraits.html.jpg">
 
 </div>
 

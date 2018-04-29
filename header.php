@@ -18,7 +18,7 @@
 	<div class="contourbas"></div>
 	<div class="contourgauche"></div>
 
-	<section class="main">Coucou
+	<section class="main">
 
 	</div>
 	<header>
@@ -35,7 +35,7 @@
 		<nav class="navigation">
 			<ul>
 				<li><a  href="menu.php" onmouseenter="playAudio()">Work</a></li>
-				<li><a  href="À propos.php" onmouseenter="playAudio()">About</a></li>
+				<li><a  href="a-propos.php" onmouseenter="playAudio()">About</a></li>
 				<li><a  href="#" onmouseenter="playAudio()">Contact</a></li>
 			</ul>
 		</nav>
